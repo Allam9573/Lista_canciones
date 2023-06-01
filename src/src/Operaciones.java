@@ -12,23 +12,38 @@ import java.util.ArrayList;
  */
 public class Operaciones {
 
-    private ArrayList<Cancion> listaCanciones;
+    private ArrayList<Cancion> listaCanciones = new ArrayList<>();
 
     public ArrayList<Cancion> getListaCanciones() {
         return listaCanciones;
     }
 
-    public void setListaCanciones(Cancion cancion) {
+    public void agregarCancion(Cancion cancion) {
         listaCanciones.add(cancion);
     }
 
-    public void buscarCancion(Cancion cancion) {
+    public boolean buscarCancion(String nombre) {
+        boolean existeCancion = false;
         for (int i = 0; i < listaCanciones.size(); i++) {
-            if (listaCanciones.get(i).getNombre() == cancion.getNombre()) {
-                System.out.println("Si existe la cancion");
+            if (listaCanciones.get(i).getNombre().equals(nombre)) {
+                existeCancion = true;
             } else {
-                System.out.println("No existe la cancion");
+                existeCancion = false;
             }
         }
+        return existeCancion;
+    }
+
+    public boolean eliminarCancion(String nombre) {
+        boolean eliminada = false;
+        for (int i = 0; i < listaCanciones.size(); i++) {
+            if (listaCanciones.get(i).getNombre().equals(nombre)) {
+                listaCanciones.remove(i);
+                eliminada = true;
+            } else {
+                eliminada = false;
+            }
+        }
+        return eliminada;
     }
 }

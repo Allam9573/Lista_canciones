@@ -10,13 +10,13 @@ package src;
  */
 public class Cancion {
 
-    private int codCancion;
+    private static int codCancion = 0;
     private String nombre;
     private int anio;
     private String artista;
 
-    public Cancion(int codCancion, String nombre, int anio, String artista) {
-        this.codCancion = codCancion;
+    public Cancion(String nombre, int anio, String artista) {
+        this.codCancion = codCancion + 1;
         this.nombre = nombre;
         this.anio = anio;
         this.artista = artista;
